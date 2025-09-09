@@ -8,7 +8,9 @@ Este projeto contém três implementações em Java que demonstram estruturas de
 O projeto consiste em três arquivos Java:
 
 Node.java - Implementação de um nó para listas encadeadas
+
 Main.java - Sistema interativo para testar pilhas e filas
+
 merge.java - Implementação do algoritmo merge para listas e vetores
 
 
