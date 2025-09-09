@@ -3,7 +3,7 @@
 
 Este projeto contém três implementações em Java que demonstram estruturas de dados fundamentais e o algoritmo de merge para listas encadeadas e vetores.
 
-##Estrutura do Projeto
+## Estrutura do Projeto
 
 O projeto consiste em três arquivos Java:
 
@@ -12,7 +12,7 @@ Main.java - Sistema interativo para testar pilhas e filas
 merge.java - Implementação do algoritmo merge para listas e vetores
 
 
-##Funcionalidade em Main.java:
+## Funcionalidade em Main.java:
 
 Pilha: Implementação LIFO (Last-In-First-Out) com operações:
 insere() - Empilha um elemento
