@@ -1,15 +1,5 @@
 public class merge {
 
-    static class Node{
-        int valor;
-        Node prox;
-
-        Node(int valor){
-            this.valor = valor;
-            this.prox = null;
-        }
-    }
-
     static class Lista {
         Node head = null;
 
@@ -21,11 +11,11 @@ public class merge {
             } else {
                 Node atual = head;
 
-                while (atual.prox != null) {
-                    atual = atual.prox;
+                while (atual.getProximo() != null) {
+                    atual = atual.getProximo();
                 }
 
-                atual.prox = novo;
+                atual.setProximo(novo);
             }
         }
 
@@ -33,8 +23,8 @@ public class merge {
 
             Node atual = head;
             while (atual != null) {
-                System.out.print(atual.valor + " ");
-                atual = atual.prox;
+                System.out.print(atual.getValor() + " ");
+                atual = atual.getProximo();
             }
             System.out.println();
         }
@@ -51,9 +41,9 @@ public class merge {
 
 
     }
-    public static int[] merge(int[] A, int[] B, int comprimentoA, int comprimentoB, int comprimentoC){
+    public static int[] merge(int[] A, int[] B, int comprimentoA, int comprimentoB){
 
-        comprimentoC = comprimentoA + comprimentoB;
+        int comprimentoC = comprimentoA + comprimentoB;
         int[] C = new int [comprimentoC];
 
         int i=0, j=0, k=0;
@@ -91,24 +81,24 @@ public class merge {
             Node b = B.head;
 
             while( a != null && b != null){
-                if( a.valor < b.valor){
-                    C.inserirValor(a.valor);
-                    a= a.prox;
+                if( a.getValor() < b.getValor()){
+                    C.inserirValor(a.getValor());
+                    a= a.getProximo();
                 }
                 else{
-                    C.inserirValor(b.valor);
-                    b = b.prox;
+                    C.inserirValor(b.getValor());
+                    b = b.getProximo();
                 }
             }
             while(a != null){
-                C.inserirValor(a.valor);
-                a = a.prox;
+                C.inserirValor(a.getValor());
+                a = a.getProximo();
 
             }
 
             while(b != null){
-                C.inserirValor(b.valor);
-                b = b.prox;
+                C.inserirValor(b.getValor());
+                b = b.getProximo();
 
             }
 
@@ -116,8 +106,6 @@ public class merge {
     }
 
     public static void main(String[] args) {
-
-
 
             Lista A = new Lista();
             Lista B = new Lista();
@@ -137,7 +125,6 @@ public class merge {
             B.inserirValor(72);
             B.inserirValor(89);
 
-            Lista C = merge(A, B);
 
             System.out.println("Lista A: ");
             A.imprimeLista();
@@ -145,45 +132,36 @@ public class merge {
             System.out.println("Lista B: ");
             B.imprimeLista();
 
-            System.out.println("Lista C: ");
-            System.out.println();
-
-            System.out.println("Lista A: ");
-
-            System.out.println("Lista B: ");
+            System.out.println("Aplicando merge...");
+            Lista C = merge(A, B);
 
             System.out.println("Lista C: ");
             C.imprimeLista();
             System.out.println();
 
 
+            int[] vetorA = {4, 32, 41, 48 ,72, 79, 101};
+            int[] vetorB = {1, 16, 27 ,29, 45, 81, 92 };
+            int lengthA = 7;
+            int lengthB = 7;
+            int lengthC = lengthA + lengthB;
 
-        int[] vetorA = {4, 32, 41, 48 ,72, 79, 101};
-        int[] vetorB = {1, 16, 27 ,29, 45, 81, 92 };
-        int lengthA = 7;
-        int lengthB = 7;
-        int lengthC = lengthA + lengthB;
 
+            System.out.println("Vetor A: ");
+            Vetor.imprimeVetor(vetorA, lengthA);
 
-        int[] vetorC = merge(vetorA, vetorB, lengthA, lengthB, lengthC);
+            System.out.println("Vetor B: ");
+            Vetor.imprimeVetor(vetorB, lengthB);
 
-        System.out.println("Vetor A: ");
-        Vetor.imprimeVetor(vetorA, lengthA);
+            System.out.println("Aplicando merge...");
+            int[] vetorC = merge(vetorA, vetorB, lengthA, lengthB);
 
-        System.out.println("Vetor B: ");
-        Vetor.imprimeVetor(vetorB, lengthB);
-
-        System.out.println("Vetor C: ");
-        System.out.println();
-
-        System.out.println("Vetor A: ");
-
-        System.out.println("Vetor B: ");
-
-        System.out.println("Vetor C: ");
-        Vetor.imprimeVetor(vetorC, lengthC);
+            System.out.println("Vetor C: ");
+            Vetor.imprimeVetor(vetorC, lengthC);
 
         }
 
 
 }
+
+       
